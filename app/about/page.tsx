@@ -1,6 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, HeartHandshake, ShieldCheck, UsersRound } from "lucide-react";
+import { useAccessibility } from "@/components/accessibility-provider";
+import { translations } from "@/data/translations";
 
-export const metadata = { title: "About | SAHAY" };
+const icons = [HeartHandshake, UsersRound, ShieldCheck];
 
-export default function AboutPage() { return <div className="page inner-page about-page"><header className="page-header"><p className="eyebrow">ABOUT SAHAY</p><h1>Digital services can be simpler.</h1><p>SAHAY is a prototype accessibility guidance platform for helping people aged 60+ feel clear, capable, and in control.</p></header><section className="about-grid"><article><HeartHandshake size={30} /><h2>Why SAHAY exists</h2><p>Essential digital services can be difficult to understand. We are exploring a more supportive and respectful way to introduce them.</p></article><article><UsersRound size={30} /><h2>Our approach</h2><p>Accessibility-first, human-centred design. We explain one step at a time and provide options without pressure.</p></article><article><ShieldCheck size={30} /><h2>What SAHAY is — and isn&apos;t</h2><p>SAHAY is a guidance and accessibility tool. It is not a government authority, a replacement for official websites, or a source of legal or medical advice.</p></article></section><section className="team-section"><div><p className="eyebrow">THE TEAM</p><h2>Built by people who care about clarity.</h2><p>Add your hackathon team members here.</p></div><div className="team-cards">{["Product & research", "Design & accessibility", "Engineering"].map((role, index) => <article key={role}><span>{String(index + 1).padStart(2, "0")}</span><h3>Team member</h3><p>{role}</p></article>)}</div></section><Link href="/services" className="primary-button">Explore the service guides <ArrowRight size={19} /></Link></div>; }
+export default function AboutPage() {
+  const { language } = useAccessibility();
+  const t = translations[language].about;
+  return <div className="page inner-page about-page"><header className="page-header"><p className="eyebrow">{t.eyebrow}</p><h1>{t.title}</h1><p>{t.description}</p></header><section className="about-grid">{t.cards.map(([title, text], index) => { const Icon = icons[index]; return <article key={title}><Icon size={30} /><h2>{title}</h2><p>{text}</p></article>; })}</section><section className="team-section"><div><p className="eyebrow">{t.teamEyebrow}</p><h2>{t.teamTitle}</h2><p>{t.teamDescription}</p></div><div className="team-cards">{t.roles.map((role, index) => <article key={role}><span>{String(index + 1).padStart(2, "0")}</span><h3>{t.member}</h3><p>{role}</p></article>)}</div></section><Link href="/services" className="primary-button">{t.explore} <ArrowRight size={19} /></Link></div>;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import type { Language } from "@/data/translations";
+import { translations, type Language } from "@/data/translations";
 
 export type TextSize = "normal" | "large" | "xlarge";
 
@@ -57,6 +57,7 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
     root.dataset.simpleMode = String(simpleMode);
     root.dataset.reduceMotion = String(reduceMotion);
     root.lang = language;
+    document.title = translations[language].meta.title;
     if (hydrated) localStorage.setItem("sahay-preferences", JSON.stringify({ textSize, highContrast, simpleMode, reduceMotion, language }));
   }, [textSize, highContrast, simpleMode, reduceMotion, language, hydrated]);
 

@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
+import { useAccessibility } from "@/components/accessibility-provider";
+import { translations } from "@/data/translations";
 
 export default function NotFound() {
-  return <div className="page inner-page not-found"><Search size={38} /><p className="eyebrow">PAGE NOT FOUND</p><h1>Let’s find a clearer path.</h1><p>This guide is not available. You can return to the service directory and choose another option.</p><Link href="/services" className="primary-button"><ArrowLeft size={18} /> View services</Link></div>;
+  const { language } = useAccessibility();
+  const t = translations[language].notFound;
+  return <div className="page inner-page not-found"><Search size={38} /><p className="eyebrow">{t.eyebrow}</p><h1>{t.title}</h1><p>{t.description}</p><Link href="/services" className="primary-button"><ArrowLeft size={18} /> {t.action}</Link></div>;
 }
