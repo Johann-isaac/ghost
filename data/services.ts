@@ -20,6 +20,7 @@ export type ServiceGuide = {
   terms: LocalizedTerm[];
   steps: LocalizedStep[];
   sourceLabel: LocalizedText;
+  sourceUrl: string;
 };
 
 export type ResolvedServiceGuide = Omit<ServiceGuide, "shortTitle" | "summary" | "whatIsIt" | "whoMightNeedIt" | "documents" | "terms" | "steps" | "sourceLabel"> & {
@@ -53,7 +54,8 @@ export const services: ServiceGuide[] = [
       { title: L("Check the official website", "அதிகாரப்பூர்வ இணையதளத்தைச் சரிபார்க்கவும்", "आधिकारिक वेबसाइट देखें"), body: L("Use the official government portal to find current rules. SAHAY cannot confirm requirements, fees, or deadlines.", "தற்போதைய விதிகளுக்கு அதிகாரப்பூர்வ அரசு இணையதளத்தைப் பயன்படுத்துங்கள். தேவைகள், கட்டணங்கள் அல்லது காலக்கெடுவை SAHAY உறுதிப்படுத்த முடியாது.", "वर्तमान नियमों के लिए आधिकारिक सरकारी पोर्टल का उपयोग करें। SAHAY आवश्यकताओं, शुल्क या समयसीमा की पुष्टि नहीं कर सकता।") },
       { title: L("Apply when ready", "தயாரானபோது விண்ணப்பிக்கவும்", "तैयार होने पर आवेदन करें"), body: L("Complete the task on the official website or get support from an authorised local help centre if you prefer.", "அதிகாரப்பூர்வ இணையதளத்தில் பணியை முடிக்கவும் அல்லது விரும்பினால் அங்கீகரிக்கப்பட்ட உள்ளூர் உதவி மையத்தின் ஆதரவைப் பெறவும்.", "आधिकारिक वेबसाइट पर काम पूरा करें या चाहें तो अधिकृत स्थानीय सहायता केंद्र से मदद लें।") },
     ],
-    sourceLabel: L("Government of India portal — verify the relevant service before continuing.", "இந்திய அரசு இணையதளம் — தொடர்வதற்கு முன் பொருத்தமான சேவையைச் சரிபார்க்கவும்.", "भारत सरकार पोर्टल — आगे बढ़ने से पहले संबंधित सेवा सत्यापित करें।"),
+    sourceLabel: L("Tamil Nadu e-Sevai portal — find eligible social-security and pension services before continuing.", "தமிழ்நாடு இ-சேவை இணையதளம் — தொடர்வதற்கு முன் தகுதியான சமூகப் பாதுகாப்பு மற்றும் ஓய்வூதிய சேவைகளைக் கண்டறியவும்.", "तमिलनाडु ई-सेवई पोर्टल — आगे बढ़ने से पहले पात्र सामाजिक सुरक्षा और पेंशन सेवाएँ खोजें।"),
+    sourceUrl: "https://www.tnesevai.tn.gov.in/",
   },
   {
     slug: "aadhaar-services", category: "documents", title: "Aadhaar-related Services",
@@ -76,7 +78,8 @@ export const services: ServiceGuide[] = [
       { title: L("Read each screen", "ஒவ்வொரு திரையையும் படிக்கவும்", "हर स्क्रीन पढ़ें"), body: L("Move one screen at a time. Stop if an instruction feels unclear and use Explain this.", "ஒரு நேரத்தில் ஒரு திரைக்கு நகருங்கள். அறிவுறுத்தல் தெளிவில்லையெனில் நின்று ‘இதனை விளக்கவும்’ என்பதைப் பயன்படுத்துங்கள்.", "एक समय में एक स्क्रीन पर जाएँ। निर्देश अस्पष्ट हो तो रुकें और ‘इसे समझाएँ’ का उपयोग करें।") },
       { title: L("Keep a record", "பதிவை வைத்திருங்கள்", "रिकॉर्ड रखें"), body: L("After an official task, save any reference number only in a secure place.", "அதிகாரப்பூர்வப் பணிக்குப் பிறகு குறிப்பு எண்ணை பாதுகாப்பான இடத்தில் மட்டும் சேமிக்கவும்.", "आधिकारिक काम के बाद संदर्भ नंबर केवल सुरक्षित जगह पर रखें।") },
     ],
-    sourceLabel: L("Government of India portal — use the verified Aadhaar service link from there.", "இந்திய அரசு இணையதளம் — அங்கிருந்து சரிபார்க்கப்பட்ட Aadhaar சேவை இணைப்பைப் பயன்படுத்தவும்.", "भारत सरकार पोर्टल — वहाँ से सत्यापित Aadhaar सेवा लिंक उपयोग करें।"),
+    sourceLabel: L("UIDAI myAadhaar portal — use the official Aadhaar service only when you are ready.", "UIDAI myAadhaar இணையதளம் — நீங்கள் தயாராக இருக்கும்போது மட்டுமே அதிகாரப்பூர்வ Aadhaar சேவையைப் பயன்படுத்தவும்.", "UIDAI myAadhaar पोर्टल — तैयार होने पर ही आधिकारिक Aadhaar सेवा का उपयोग करें।"),
+    sourceUrl: "https://myaadhaar.uidai.gov.in/",
   },
   {
     slug: "public-healthcare", category: "healthcare", title: "Public Healthcare Schemes",
@@ -99,7 +102,8 @@ export const services: ServiceGuide[] = [
       { title: L("Prepare questions", "கேள்விகளைத் தயாரிக்கவும்", "प्रश्न तैयार करें"), body: L("Write down what you want to know. This can make a call or visit less stressful.", "நீங்கள் தெரிந்துகொள்ள விரும்புவதை எழுதிக்கொள்ளுங்கள். இது அழைப்பு அல்லது வருகையை எளிதாக்கும்.", "जो जानना चाहते हैं उसे लिख लें। इससे कॉल या मुलाकात कम तनावपूर्ण हो सकती है।") },
       { title: L("Ask for trusted support", "நம்பகமான உதவியைக் கேளுங்கள்", "विश्वसनीय सहायता लें"), body: L("For medical advice, talk to a qualified healthcare professional. SAHAY is not medical advice.", "மருத்துவ ஆலோசனைக்கு தகுதியான சுகாதார நிபுணரிடம் பேசுங்கள். SAHAY மருத்துவ ஆலோசனை அல்ல.", "चिकित्सा सलाह के लिए योग्य स्वास्थ्य पेशेवर से बात करें। SAHAY चिकित्सा सलाह नहीं है।") },
     ],
-    sourceLabel: L("Government of India portal — verify current healthcare information.", "இந்திய அரசு இணையதளம் — தற்போதைய சுகாதாரத் தகவலைச் சரிபார்க்கவும்.", "भारत सरकार पोर्टल — वर्तमान स्वास्थ्य जानकारी सत्यापित करें।"),
+    sourceLabel: L("Tamil Nadu CMCHIS portal — verify current scheme details and hospital information.", "தமிழ்நாடு CMCHIS இணையதளம் — தற்போதைய திட்ட விவரங்கள் மற்றும் மருத்துவமனை தகவலைச் சரிபார்க்கவும்.", "तमिलनाडु CMCHIS पोर्टल — वर्तमान योजना विवरण और अस्पताल की जानकारी सत्यापित करें।"),
+    sourceUrl: "https://m.cmchistn.com/",
   },
   {
     slug: "railway-ticket-booking", category: "travel", title: "Railway Ticket Booking",
@@ -122,7 +126,8 @@ export const services: ServiceGuide[] = [
       { title: L("Review before payment", "பணம் செலுத்தும் முன் சரிபார்க்கவும்", "भुगतान से पहले जांचें"), body: L("Read journey details slowly and make sure they match your plan.", "பயண விவரங்களை மெதுவாகப் படித்து, அவை உங்கள் திட்டத்துடன் பொருந்துகிறதா என உறுதிப்படுத்தவும்.", "यात्रा विवरण धीरे-धीरे पढ़ें और सुनिश्चित करें कि वे आपकी योजना से मेल खाते हैं।"), term: "PNR" },
       { title: L("Save the booking reference", "பதிவு குறிப்பைச் சேமிக்கவும்", "बुकिंग संदर्भ सहेजें"), body: L("Keep the official confirmation and reference number somewhere secure.", "அதிகாரப்பூர்வ உறுதிப்படுத்தலையும் குறிப்பு எண்ணையும் பாதுகாப்பான இடத்தில் வைக்கவும்.", "आधिकारिक पुष्टि और संदर्भ नंबर सुरक्षित जगह पर रखें।") },
     ],
-    sourceLabel: L("Government of India portal — find the verified railway service there.", "இந்திய அரசு இணையதளம் — சரிபார்க்கப்பட்ட ரயில்வே சேவையை அங்கே கண்டறியவும்.", "भारत सरकार पोर्टल — वहाँ सत्यापित रेलवे सेवा खोजें।"),
+    sourceLabel: L("IRCTC official booking portal — review your journey details before payment.", "IRCTC அதிகாரப்பூர்வ முன்பதிவு இணையதளம் — பணம் செலுத்தும் முன் உங்கள் பயண விவரங்களைச் சரிபார்க்கவும்.", "IRCTC आधिकारिक बुकिंग पोर्टल — भुगतान से पहले अपनी यात्रा का विवरण जांचें।"),
+    sourceUrl: "https://www.irctc.co.in/nget/train-search",
   },
   {
     slug: "utility-bill-payment", category: "digital", title: "Utility Bill Payment",
@@ -145,7 +150,8 @@ export const services: ServiceGuide[] = [
       { title: L("Review payment details", "கட்டண விவரங்களைச் சரிபார்க்கவும்", "भुगतान विवरण जांचें"), body: L("Before you pay, check the account and amount carefully.", "பணம் செலுத்தும் முன் கணக்கையும் தொகையையும் கவனமாகச் சரிபார்க்கவும்.", "भुगतान से पहले खाता और राशि ध्यान से जांचें।"), term: "Consumer number" },
       { title: L("Keep the confirmation", "உறுதிப்படுத்தலை வைத்திருங்கள்", "पुष्टि रखें"), body: L("Save the official payment confirmation or reference number.", "அதிகாரப்பூர்வ கட்டண உறுதிப்படுத்தல் அல்லது குறிப்பு எண்ணைச் சேமிக்கவும்.", "आधिकारिक भुगतान पुष्टि या संदर्भ नंबर सहेजें।") },
     ],
-    sourceLabel: L("Government of India portal — verify your local utility provider.", "இந்திய அரசு இணையதளம் — உங்கள் உள்ளூர் பயன்பாட்டு வழங்குநரைச் சரிபார்க்கவும்.", "भारत सरकार पोर्टल — अपने स्थानीय उपयोगिता प्रदाता को सत्यापित करें।"),
+    sourceLabel: L("TANGEDCO online payment portal — confirm the account and amount before you pay.", "TANGEDCO இணையக் கட்டண இணையதளம் — பணம் செலுத்தும் முன் கணக்கையும் தொகையையும் உறுதிப்படுத்தவும்.", "TANGEDCO ऑनलाइन भुगतान पोर्टल — भुगतान से पहले खाता और राशि की पुष्टि करें।"),
+    sourceUrl: "https://sbill.tangedco.org/e2e/user/login",
   },
   {
     slug: "government-certificates", category: "government", title: "Government Certificates",
@@ -168,7 +174,8 @@ export const services: ServiceGuide[] = [
       { title: L("Prepare only what is requested", "கேட்கப்பட்டதை மட்டும் தயாரிக்கவும்", "केवल मांगी गई चीज़ तैयार करें"), body: L("Use the document list from the official service. Do not upload personal documents to SAHAY.", "அதிகாரப்பூர்வ சேவையின் ஆவணப் பட்டியலைப் பயன்படுத்தவும். தனிப்பட்ட ஆவணங்களை SAHAY-இல் பதிவேற்ற வேண்டாம்.", "आधिकारिक सेवा की दस्तावेज़ सूची उपयोग करें। व्यक्तिगत दस्तावेज़ SAHAY पर अपलोड न करें।") },
       { title: L("Save the official reference", "அதிகாரப்பூர்வ குறிப்பைச் சேமிக்கவும்", "आधिकारिक संदर्भ सहेजें"), body: L("If you complete an official request, keep the confirmation or reference number in a secure place.", "அதிகாரப்பூர்வ கோரிக்கையை முடித்தால், உறுதிப்படுத்தல் அல்லது குறிப்பு எண்ணைப் பாதுகாப்பான இடத்தில் வைத்திருங்கள்.", "यदि आधिकारिक अनुरोध पूरा करें, पुष्टि या संदर्भ नंबर सुरक्षित जगह पर रखें।") },
     ],
-    sourceLabel: L("Government of India portal — verify the relevant certificate service before continuing.", "இந்திய அரசு இணையதளம் — தொடர்வதற்கு முன் பொருத்தமான சான்றிதழ் சேவையைச் சரிபார்க்கவும்.", "भारत सरकार पोर्टल — आगे बढ़ने से पहले संबंधित प्रमाणपत्र सेवा सत्यापित करें।"),
+    sourceLabel: L("Tamil Nadu e-Sevai portal — choose the relevant certificate service before continuing.", "தமிழ்நாடு இ-சேவை இணையதளம் — தொடர்வதற்கு முன் பொருத்தமான சான்றிதழ் சேவையைத் தேர்ந்தெடுக்கவும்.", "तमिलनाडु ई-सेवई पोर्टल — आगे बढ़ने से पहले संबंधित प्रमाणपत्र सेवा चुनें।"),
+    sourceUrl: "https://serviceonline.gov.in/configuretn/login.do?language=en",
   },
 ];
 

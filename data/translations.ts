@@ -70,3 +70,33 @@ export const translations = {
     notFound: { eyebrow: "पेज नहीं मिला", title: "आइए एक स्पष्ट रास्ता खोजें।", description: "यह गाइड उपलब्ध नहीं है। आप सेवा निर्देशिका पर लौट सकते हैं।", action: "सेवाएँ देखें" },
   },
 } as const;
+
+export const helplineTranslations = {
+  en: {
+    eyebrow: "DIRECT SUPPORT", title: "Go straight to the right help.", description: "Use these official phone numbers and portals when you need assistance beyond this guide.",
+    cards: [
+      { title: "Tamil Nadu public services — 1100", text: "For a grievance, a public-service question, or help with a Tamil Nadu scheme.", call: "Call 1100", website: "Open Tamil Nadu CM Helpline" },
+      { title: "Senior citizen support — 14567", text: "Elderline offers information, guidance, emotional support, and intervention for older people.", call: "Call Elderline 14567", website: "Open Elderline information" },
+      { title: "Tamil Nadu health scheme — 1800 425 3993", text: "For official assistance with the Chief Minister’s Comprehensive Health Insurance Scheme.", call: "Call CMCHIS", website: "Open CMCHIS portal" },
+      { title: "Report cyber fraud — 1930", text: "If you believe money was taken through fraud, call promptly and complete the report online.", call: "Call 1930", website: "Open cybercrime reporting portal" },
+    ],
+  },
+  ta: {
+    eyebrow: "நேரடி உதவி", title: "சரியான உதவிக்கு நேரடியாகச் செல்லுங்கள்.", description: "இந்த வழிகாட்டிக்கு அப்பால் உதவி தேவைப்பட்டால் இந்த அதிகாரப்பூர்வ தொலைபேசி எண்களையும் இணையதளங்களையும் பயன்படுத்துங்கள்.",
+    cards: [
+      { title: "தமிழ்நாடு பொதுச் சேவைகள் — 1100", text: "குறை, பொதுச் சேவை கேள்வி அல்லது தமிழ்நாடு திட்ட உதவிக்காக.", call: "1100-ஐ அழைக்கவும்", website: "தமிழ்நாடு முதல்வர் உதவிமையத்தைத் திறக்கவும்" },
+      { title: "மூத்த குடிமக்கள் உதவி — 14567", text: "Elderline மூத்தவர்களுக்கு தகவல், வழிகாட்டல், உணர்வுபூர்வ ஆதரவு மற்றும் தலையீட்டை வழங்குகிறது.", call: "Elderline 14567-ஐ அழைக்கவும்", website: "Elderline தகவலைத் திறக்கவும்" },
+      { title: "தமிழ்நாடு சுகாதாரத் திட்டம் — 1800 425 3993", text: "முதல்வரின் விரிவான சுகாதாரக் காப்பீட்டுத் திட்டத்திற்கான அதிகாரப்பூர்வ உதவிக்கு.", call: "CMCHIS-ஐ அழைக்கவும்", website: "CMCHIS இணையதளத்தைத் திறக்கவும்" },
+      { title: "இணைய மோசடியைப் புகாரளிக்கவும் — 1930", text: "மோசடி மூலம் பணம் எடுக்கப்பட்டதாக நீங்கள் நம்பினால், உடனே அழைத்து இணையத்தில் புகாரை முடிக்கவும்.", call: "1930-ஐ அழைக்கவும்", website: "இணையக் குற்றப் புகார் இணையதளத்தைத் திறக்கவும்" },
+    ],
+  },
+  hi: {
+    eyebrow: "सीधी सहायता", title: "सीधे सही मदद तक जाएँ।", description: "इस गाइड के अलावा सहायता चाहिए तो इन आधिकारिक फोन नंबरों और पोर्टलों का उपयोग करें।",
+    cards: [
+      { title: "तमिलनाडु सार्वजनिक सेवाएँ — 1100", text: "शिकायत, सार्वजनिक सेवा संबंधी प्रश्न या तमिलनाडु योजना की मदद के लिए।", call: "1100 पर कॉल करें", website: "तमिलनाडु मुख्यमंत्री हेल्पलाइन खोलें" },
+      { title: "वरिष्ठ नागरिक सहायता — 14567", text: "Elderline वृद्ध लोगों के लिए जानकारी, मार्गदर्शन, भावनात्मक सहायता और हस्तक्षेप प्रदान करती है।", call: "Elderline 14567 पर कॉल करें", website: "Elderline जानकारी खोलें" },
+      { title: "तमिलनाडु स्वास्थ्य योजना — 1800 425 3993", text: "मुख्यमंत्री व्यापक स्वास्थ्य बीमा योजना से आधिकारिक सहायता के लिए।", call: "CMCHIS को कॉल करें", website: "CMCHIS पोर्टल खोलें" },
+      { title: "साइबर धोखाधड़ी रिपोर्ट करें — 1930", text: "यदि आपको लगता है कि धोखाधड़ी से पैसे लिए गए हैं, तो तुरंत कॉल करें और ऑनलाइन रिपोर्ट पूरी करें।", call: "1930 पर कॉल करें", website: "साइबर अपराध रिपोर्टिंग पोर्टल खोलें" },
+    ],
+  },
+} satisfies Record<Language, { eyebrow: string; title: string; description: string; cards: { title: string; text: string; call: string; website: string }[] }>;
